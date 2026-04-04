@@ -11,7 +11,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-bold">About Me</h1>
       <p className="mt-4 text-gray-600">
         This page will include my background, experience, skills, career journey,
-        and the things I care about as a software engineer.
+        and the things I care about as a software engineer.!!!
       </p>
     </main>
   );
