@@ -1,6 +1,6 @@
 name: CI
 
-"on":
+on:
   push:
     branches: [main, develop]
   pull_request:
@@ -9,6 +9,8 @@ name: CI
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     strategy:
       matrix:
@@ -21,14 +23,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version}}
+          node-version: ${{ matrix.node-version }}
           cache: npm
-        
+
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate Prisma client
+        run: npx prisma generate
+
       - name: Run lint
         run: npm run lint
-        
+
       - name: Build application
         run: npm run build
