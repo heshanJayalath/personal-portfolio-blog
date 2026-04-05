@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
@@ -16,18 +18,18 @@ export default function HomePage() {
         </p>
 
         <div className="flex gap-4">
-          <a
+          <Link
             href="/about"
             className="rounded-xl bg-black px-5 py-3 text-white transition hover:opacity-90"
           >
             About Me
-          </a>
-          <a
+          </Link>
+          <Link
             href="/articles"
             className="rounded-xl border border-gray-300 px-5 py-3 transition hover:bg-gray-50"
           >
             Read Articles
-          </a>
+          </Link>
         </div>
       </section>
     </main>
